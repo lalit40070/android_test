@@ -15,7 +15,14 @@ pipeline {
                 sh "rm -rf android"
                 sh "npx cap add android"
             }
+        } 
+     
+        stage('Android Lint') {
+            steps {
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew lint"       
+            }
         }
+      
        stage('build app') {
             steps {
 
