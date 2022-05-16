@@ -31,10 +31,8 @@ pipeline {
         }
        stage('build android') {
             steps {
-                /*sh "export ANDROID_HOME=/var/lib/jenkins/android-sdk"
-                sh "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64"*/
-                sh "cd /var/lib/jenkins/workspace/test/android && ./gradlew clean"  
-                sh "cd /var/lib/jenkins/workspace/test/android && ./gradlew assembleDebug"
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew clean"  
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew assembleDebug"
             }
         }
       }
