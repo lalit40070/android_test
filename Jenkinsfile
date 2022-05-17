@@ -20,23 +20,23 @@ pipeline {
     
         stage('Android Lint') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew lint"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew lint --warning-mode all"       
             }
         }
       stage('Android test') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew test"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew test --warning-mode all"       
             }
         }
       stage('Android check') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check --warning-mode all"       
             }
         }
        stage('SonarQube analysis')  {
             steps {
                  withSonarQubeEnv('sonarqube-8.9.1') {
-                   sh 'cd /var/lib/jenkins/workspace/android-test/android && ./gradlew sonarqube'
+                   sh 'cd /var/lib/jenkins/workspace/android-test/android && ./gradlew sonarqube --warning-mode all'
                  }
            }
         }
