@@ -24,12 +24,12 @@ pipeline {
         }
       stage('Android check') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew test"       
             }
         }
       stage('Android test') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew test"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
             }
         }
       
