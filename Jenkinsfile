@@ -57,5 +57,10 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew assembleDebug"
             }
         }
+     stage('approval') {
+             steps { 
+               input "Deploy to Prod?"
+          }
+        } 
     }
    }
