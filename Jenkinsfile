@@ -35,7 +35,7 @@ pipeline {
         }
       stage('Slack message') {
         steps {
-        slackSend color: '#BADA55', message: 'Hello, World!'
+        slackSend color: '#BADA55', message: 'Approval request for androidtest'
     }
     }
         stage('build app') {
