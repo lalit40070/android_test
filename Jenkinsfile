@@ -34,7 +34,7 @@ pipeline {
         }
        stage('SonarQube analysis')  {
             steps {
-                 withSonarQubeEnv('sonarqube-8.9.1') {
+                 withSonarQubeEnv() {
                    sh 'cd /var/lib/jenkins/workspace/android-test/android && ./gradlew sonarqube'
                  }
            }
