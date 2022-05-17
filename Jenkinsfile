@@ -33,8 +33,8 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
             }
         }
-      stage("Slack message") {
-        step {
+      stage('Slack message') {
+        steps {
         slackSend color: '#BADA55', message: 'Hello, World!'
     }
     }
