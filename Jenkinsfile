@@ -20,27 +20,25 @@ pipeline {
     
         stage('Android Lint') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew lint --warning-mode all"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew lint"       
             }
         }
       stage('Android test') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew test --warning-mode all"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew test"       
             }
         }
       stage('Android check') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check --warning-mode all"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
             }
         }
-       stage('SonarQube analysis')  {
-            steps {
-                 withSonarQubeEnv('sonarqube-8.9.1') {
-                   sh 'cd /var/lib/jenkins/workspace/android-test/android && ./gradlew sonarqube --warning-mode all'
-                 }
-           }
-        }
-       stage('build app') {
+      stage("Slack message") {
+        step {
+        slackSend color: '#BADA55', message: 'Hello, World!'
+    }
+    }
+        stage('build app') {
             steps {
 
                 sh "npm run build"
