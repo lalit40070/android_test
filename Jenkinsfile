@@ -19,7 +19,7 @@ pipeline {
     
         stage('Android Lint') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew lint"       
+                sh "cd  /var/lib/jenkins/workspace/android-test/android && ./gradlew lint"       
             }
         }
       
