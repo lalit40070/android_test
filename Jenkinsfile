@@ -14,6 +14,7 @@ pipeline {
             steps {
                 sh "rm -rf android"
                 sh "npx cap add android"
+                sh "cp -r /opt/sonarque /var/lib/jenkins/workspace/android-test/android/"
             }
         } 
     
