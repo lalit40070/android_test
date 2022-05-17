@@ -1,7 +1,7 @@
 pipeline {
     agent any
     options {
-        buildDiscarder logRotator(daysToKeepStr: '5', numToKeepStr: '5')
+        buildDiscarder logRotator(daysToKeepStr: '3', numToKeepStr: '3')
     }
     stages {
         stage('npm install') { 
