@@ -32,7 +32,13 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
             }
         }
-      
+       stage('SonarQube analysis')  {
+            steps {
+                 withSonarQubeEnv('sonarqube') {
+                   sh 'cd /var/lib/jenkins/workspace/android-test/android && ./gradlew sonar:sonar'
+                 }
+           }
+        }
        stage('build app') {
             steps {
 
