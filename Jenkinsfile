@@ -31,7 +31,16 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
             }
         }
-      
+        stage('Slack message') {
+        steps {
+        slackSend color: '#BADA55', message: 'Approval request from Jenkins'
+    }
+    }
+       stage('Approval Request') {
+             steps { 
+               input "Deploy to Prod?"
+          }
+        } 
        stage('build app') {
             steps {
 
