@@ -16,10 +16,19 @@ pipeline {
                 sh "npx cap add android"
             }
         } 
-    
-        stage('Android Lint') {
+     stage('Android Lint') {
             steps {
-                sh "cd  /var/lib/jenkins/workspace/android-test/android && ./gradlew lint"       
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew lint"       
+            }
+        }
+      stage('Android test') {
+            steps {
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew test"       
+            }
+        }
+      stage('Android check') {
+            steps {
+                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
             }
         }
       
