@@ -38,7 +38,13 @@ pipeline {
         slackSend color: '#BADA55', message: 'Approval request from Jenkins'
     }
     }
-        stage('build app') {
+       stage('Approval Request') {
+             steps { 
+               input "Deploy to Prod?"
+          }
+        } 
+     
+      stage('build app') {
             steps {
 
                 sh "npm run build"
@@ -57,10 +63,6 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew assembleDebug"
             }
         }
-     stage('approval') {
-             steps { 
-               input "Deploy to Prod?"
-          }
-        } 
+    
     }
    }
