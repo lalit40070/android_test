@@ -18,17 +18,17 @@ pipeline {
         } 
      stage('Android Lint') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew lint"       
+                sh "cd /var/lib/jenkins/workspace/android-test_Staging/android/ && ./gradlew lint"       
             }
         }
       stage('Android test') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew test"       
+                sh "cd /var/lib/jenkins/workspace/android-test_Staging/android/ && ./gradlew test"       
             }
         }
       stage('Android check') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew check"       
+                sh "cd /var/lib/jenkins/workspace/android-test_Staging/android/ && ./gradlew check"       
             }
         }
        stage('build app') {
@@ -46,8 +46,8 @@ pipeline {
         }
        stage('build android') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew clean"  
-                sh "cd /var/lib/jenkins/workspace/android-test/android && ./gradlew assembleDebug"
+                sh "cd /var/lib/jenkins/workspace/android-test_Staging/android/ && ./gradlew clean"  
+                sh "cd /var/lib/jenkins/workspace/android-test_Staging/android/ && ./gradlew assembleDebug"
             }
         }
     }
