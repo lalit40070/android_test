@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Slack message') {
         steps {
-        slackSend color: '#BADA55', message: 'Approval request from Jenkins ${BUILD_NUMBER} '
+        slackSend color: '#BADA55', message: "Approval request from Jenkins ${BUILD_NUMBER}"
     }
     }
        stage('Approval Request') {
